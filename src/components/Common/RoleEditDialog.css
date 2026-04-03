@@ -1,0 +1,99 @@
+.role-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.role-modal-card {
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 55%),
+    var(--bg-card);
+  border-radius: var(--radius-2xl);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.55);
+  padding: 1.75rem 2rem 1.5rem;
+  max-width: 640px;
+  width: 100%;
+}
+
+.role-modal-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 1rem;
+  border: none;
+  background: rgba(15, 23, 42, 0.35);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.role-modal-close:hover {
+  background: rgba(148, 163, 184, 0.5);
+  transform: translateY(-1px);
+}
+
+.role-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.role-modal-icon-glow {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.25), rgba(59, 130, 246, 0.02));
+  color: var(--primary);
+}
+
+.role-modal-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.role-modal-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.role-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1.5rem;
+}
+
+.role-modal-full {
+  grid-column: 1 / -1;
+}
+
+.role-modal-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .role-modal-card {
+    margin: 0 1rem;
+    padding: 1.5rem 1.25rem 1.25rem;
+  }
+
+  .role-modal-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,24 @@
+:root {
+  --bg-sidebar: #0f172a;
+  --bg-active: rgba(16, 185, 129, 0.1);
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  
+  --accent: #10b981;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --border-sidebar: rgba(255, 255, 255, 0.06);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  
+  --sidebar-width: 260px;
+  --sidebar-collapsed-width: 80px;
+  
+  --transition-speed: 0.25s;
+  --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --shadow-sidebar: 10px 0 30px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+

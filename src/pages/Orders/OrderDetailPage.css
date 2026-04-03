@@ -1,0 +1,108 @@
+.order-details-container {
+  min-height: 100vh;
+  background-color: #f8fafc; /* Light slate background */
+  padding: 40px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.download-btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.download-btn:hover { background: #f1f5f9; }
+
+/* Layout Controls */
+/* Layout Controls */
+.order-detail-content-layout {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  
+  /* Use Flexbox to manage vertical spacing globally */
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Change this single value to increase/decrease all gaps */
+}
+
+/* Remove the hardcoded margin-bottom from the Status component 
+   to let the Flex gap handle it */
+.status-hero-card {
+  background: white;
+  border-radius: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 0; /* Changed from 30px to 0 */
+}
+
+/* Ensure the components inside have no stray bottom margins */
+.content-layout > * {
+  margin-bottom: 0 !important;
+}
+
+.status-hero-card {
+  background: white;
+  border-radius: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  margin-bottom: 30px;
+}
+
+/* The Grid below the status bar */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.detail-card {
+  background: white;
+  padding: 24px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.detail-card h4 {
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+}
+
+.detail-card p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+.visa-tag {
+  font-size: 10px;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.delivery-date {
+  color: #10b981 !important; /* Green for positive info */
+}
+
+.contact-btn {
+  width: 100%;
+  padding: 8px;
+  border: 1px dashed #cbd5e1;
+  background: transparent;
+  border-radius: 8px;
+  color: #64748b;
+  cursor: pointer;
+}
+
+

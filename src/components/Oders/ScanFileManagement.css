@@ -1,0 +1,78 @@
+/* --- SCAN SPECIFIC OVERRIDES --- */
+
+.empty-state-container {
+  padding: 30px;
+  text-align: center;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.attachment-interface {
+  padding-top: 8px;
+}
+
+.input-group-modern {
+  display: flex;
+  gap: 12px;
+}
+
+.select-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.modern-select {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  appearance: none;
+  font-size: 14px;
+  background: white;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.modern-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.select-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-muted);
+}
+
+.attach-btn-glow {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.attach-btn-glow:hover {
+  background: var(--accent);
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+}
+
+.selected-highlight {
+  background: #f0fdfa !important; /* Light mint */
+  border-color: #ccfbf1 !important;
+}
+
+/* Ensure the expand/collapse is silky smooth */
+.order-card-content {
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}

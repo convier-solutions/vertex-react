@@ -1,0 +1,119 @@
+/* --- TABLE WRAPPER --- */
+.premium-wrapper {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f5f9;
+}
+
+/* --- HEADER --- */
+.premium-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.table-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.record-count {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* --- SEARCH --- */
+.premium-search {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 0.6rem 1rem 0.6rem 2.8rem !important;
+    width: 260px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.premium-search:focus {
+    width: 320px;
+    border-color: #6366f1 !important;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1) !important;
+}
+
+/* --- DATATABLE ROWS & HEADERS --- */
+.p-datatable-premium .p-datatable-thead > tr > th {
+    background: #e2e8f0 !important; /* Light grey background for headers */
+    color: #334155 !important; /* Darker text for better contrast */
+    padding: 1rem !important;
+    font-size: 0.85rem !important; /* Slightly larger font */
+    font-weight: 600 !important; /* Bolder text */
+    border-bottom: 2px solid #cbd5e1 !important; /* More prominent bottom border */
+    border-top: none !important; /* Remove top border if any */
+    text-transform: uppercase; /* Uppercase for headings */
+    letter-spacing: 0.05em; /* Slight letter spacing */
+}
+
+.p-datatable-premium .p-datatable-tbody > tr > td {
+    padding: 1rem !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    color: #475569; /* Default row text color */
+}
+
+.p-datatable-premium .p-datatable-tbody > tr {
+    transition: background-color 0.2s ease-in-out; /* Smooth transition for hover */
+}
+
+.p-datatable-premium .p-datatable-tbody > tr:nth-child(even) {
+    background-color: #f8fafc; /* Light background for even rows */
+}
+
+.p-datatable-premium .p-datatable-tbody > tr:hover {
+    background-color: #eef2ff !important; /* Light blue background on hover */
+    cursor: pointer;
+}
+
+/* --- PAGINATION STYLING (FIXED) --- */
+.p-paginator {
+    background: transparent !important;
+    border: none !important;
+    padding: 1.5rem 0 0.5rem 0 !important;
+    justify-content: flex-end !important; /* Aligns page buttons to the right */
+}
+
+/* Push "Showing X of Y" to the far left */
+.p-paginator-current {
+    margin-right: auto !important;
+    font-weight: 600 !important;
+    color: #64748b !important;
+    font-size: 0.85rem !important;
+}
+
+/* Style the page buttons */
+.p-paginator .p-paginator-pages .p-paginator-page {
+    border-radius: 8px !important;
+    min-width: 35px !important;
+    height: 35px !important;
+    margin: 0 3px !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: #6366f1 !important;
+    color: white !important;
+    border-color: #6366f1 !important;
+}
+
+/* Dropdown for rows per page */
+.p-paginator .p-dropdown {
+    margin-left: 1rem !important;
+    border-radius: 8px !important;
+    height: 35px !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.p-datatable-premium .p-skeleton {
+    background-color: #f1f5f9 !important; /* Soft grey like your image */
+    border-radius: 16px !important;
+}

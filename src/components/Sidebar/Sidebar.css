@@ -1,0 +1,337 @@
+:root {
+  --sb-bg: rgba(255, 255, 255, 0.92);
+  --sb-border: #e6edf6;
+  --sb-text-main: #0f172a;
+  --sb-text-muted: #64748b;
+  --sb-accent: #10b981;
+  --sb-accent-hover: #059669;
+  --sb-accent-soft: rgba(16, 185, 129, 0.14);
+  --sb-hover: rgba(2, 6, 23, 0.04);
+  --sb-card-bg: rgba(2, 6, 23, 0.03);
+  --sb-search-bg: rgba(2, 6, 23, 0.03);
+  --sb-shadow: 0 18px 40px -22px rgba(2, 6, 23, 0.22);
+  --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark {
+  --sb-bg: rgba(15, 23, 42, 0.88);
+  --sb-border: rgba(148, 163, 184, 0.18);
+  --sb-text-main: #f8fafc;
+  --sb-text-muted: #a7b7cd;
+  --sb-hover: rgba(248, 250, 252, 0.06);
+  --sb-card-bg: rgba(248, 250, 252, 0.06);
+  --sb-search-bg: rgba(248, 250, 252, 0.06);
+  --sb-shadow: 0 18px 44px -26px rgba(0, 0, 0, 0.55);
+}
+
+/* ── Base Sidebar ── */
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 280px;
+  background: var(--sb-bg);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  z-index: 1000;
+  transition: width 0.3s var(--transition-ease);
+  border-right: 1px solid var(--sb-border);
+  box-shadow: var(--sb-shadow);
+  backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: 84px;
+}
+
+/* ── Brand / Logo ── */
+.sidebar__brand {
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  height: 82px;
+  flex-shrink: 0;
+}
+
+.sidebar__brand-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.sidebar__logo-v {
+  width: 52px; /* Container for V to keep it centered when collapsed */
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar__logo-v img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.sidebar__brand-name {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.sidebar__brand-name img {
+  height: 24px;
+  width: auto;
+}
+
+/* ── Search ── */
+.sidebar__search-container {
+  margin: 0 16px 16px 16px;
+  background: var(--sb-search-bg);
+  border: 1px solid var(--sb-border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.sidebar__search-input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  color: var(--sb-text-main);
+  width: 100%;
+}
+
+/* ── Navigation ── */
+.sidebar__menu {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 12px;
+}
+
+/* Custom Scrollbar for the Menu */
+.sidebar__menu::-webkit-scrollbar {
+  width: 4px;
+}
+.sidebar__menu::-webkit-scrollbar-thumb {
+  background: var(--sb-border);
+  border-radius: 10px;
+}
+
+.sidebar__group-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sb-text-muted);
+  text-transform: uppercase;
+  margin: 24px 0 8px 12px;
+  letter-spacing: 0.05em;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 4px;
+  border-radius: 10px;
+  color: var(--sb-text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s var(--transition-ease);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  width: 100%;
+  position: relative;
+}
+
+.sidebar__link:hover {
+  background: var(--sb-hover);
+  color: var(--sb-text-main);
+}
+
+.sidebar__link.active, 
+.sidebar__link.active-parent {
+  background: var(--sb-accent-soft);
+  color: var(--sb-accent);
+}
+
+.sidebar__icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.chevron {
+  margin-left: auto;
+  font-size: 18px;
+  transition: transform 0.3s var(--transition-ease);
+}
+.chevron.open {
+  transform: rotate(90deg);
+}
+
+/* ── Submenu ── */
+.sidebar__sub {
+  margin-left: 22px;
+  border-left: 1px solid var(--sb-border);
+  margin-bottom: 8px;
+}
+
+.sidebar__sub-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--sb-text-muted);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.sidebar__sub-link:hover, 
+.sidebar__sub-link.active {
+  color: var(--sb-accent);
+}
+
+/* ── Footer ── */
+.sidebar__footer {
+  padding: 16px;
+  border-top: 1px solid var(--sb-border);
+  background: var(--sb-bg);
+  margin-top: auto;
+}
+
+.sidebar__theme-wrapper {
+  display: flex;
+  background: var(--sb-card-bg);
+  padding: 4px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--sb-border);
+}
+
+.theme-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sb-text-muted);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.theme-btn.active {
+  background: var(--sb-bg);
+  color: var(--sb-accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.sidebar__user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: var(--sb-card-bg);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid transparent;
+  transition: border 0.2s;
+}
+
+.sidebar__user-card:hover {
+  border-color: var(--sb-border);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sb-text-main);
+  white-space: nowrap;
+}
+
+.user-email {
+  font-size: 11px;
+  color: var(--sb-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: rgba(225, 29, 72, 0.05);
+  border: 1px solid rgba(225, 29, 72, 0.1);
+  color: #e11d48;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sidebar__logout-btn:hover {
+  background: rgba(225, 29, 72, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ── Collapsed Logic ── */
+.sidebar.collapsed .sidebar__brand {
+  justify-content: center;
+  padding: 0;
+}
+
+.sidebar.collapsed .sidebar__brand-container {
+  justify-content: center;
+  gap: 0;
+}
+
+.sidebar.collapsed .sidebar__link {
+  justify-content: center;
+  padding: 12px;
+  margin: 0 10px 4px 10px;
+}
+
+.sidebar.collapsed .sidebar__user-card {
+  padding: 10px;
+  justify-content: center;
+}
+
+.sidebar.collapsed .sidebar__logout-btn {
+  padding: 12px;
+}

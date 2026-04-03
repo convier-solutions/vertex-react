@@ -1,0 +1,190 @@
+.apple-date-picker {
+  width: 100%;
+}
+
+.date-group {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.apple-date-input {
+  display: flex;
+  padding: 18px 20px 18px 54px;
+  border-radius: var(--radius-xl);
+  border: 2px solid var(--border-light);
+  font-size: 1.1rem;
+  transition: all var(--transition-speed) var(--transition-ease);
+  background: var(--bg-content);
+  color: var(--primary);
+  font-family: var(--font-family);
+  width: 100%;
+}
+
+.apple-date-input:focus-within {
+  outline: none;
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 6px var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.apple-date-segment {
+  padding: 0 1px;
+  border-radius: 2px;
+  transition: background 0.1s;
+}
+
+.apple-date-segment[aria-placeholder] {
+  color: var(--primary-light);
+}
+
+.apple-date-segment:focus {
+  background: var(--accent);
+  color: white;
+  outline: none;
+}
+
+.apple-calendar-trigger {
+  position: absolute;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: var(--primary-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.apple-calendar-trigger:hover {
+  color: var(--accent);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Popover and Dialog */
+.apple-calendar-popover {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-light);
+  margin-top: 8px;
+  padding: 20px;
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.apple-calendar-dialog {
+  outline: none;
+}
+
+.apple-calendar {
+  width: 280px;
+}
+
+.apple-calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.apple-calendar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0;
+}
+
+.apple-calendar-nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--primary-light);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.apple-calendar-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--primary);
+}
+
+.apple-calendar-grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.apple-calendar-header-cell {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-light);
+  padding: 8px 0;
+  text-transform: uppercase;
+}
+
+.apple-calendar-cell {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--primary);
+  outline: none;
+}
+
+.apple-calendar-cell:hover:not(.selected) {
+  background: rgba(0, 113, 227, 0.1);
+  color: var(--accent);
+}
+
+.apple-calendar-cell.selected {
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 4px 10px var(--accent-light);
+}
+
+.apple-calendar-cell.today {
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.apple-calendar-cell.today.selected {
+  border-color: white;
+  color: white;
+}
+
+.apple-calendar-cell.outside {
+  color: var(--primary-light);
+  opacity: 0.4;
+}
+
+.apple-calendar-cell.focused {
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--accent-light);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

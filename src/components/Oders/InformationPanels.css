@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --sleek-primary: #0f172a;
+  --sleek-accent: #3b82f6;
+  --sleek-bg: #f8fafc;
+  --sleek-border: #e2e8f0;
+  --sleek-text-muted: #94a3b8;
+  --sleek-card-bg: #ffffff;
+  --hover-bg: #f0f7ff; /* Lighter light-blue for hover */
+}
+
+.sleek-dashboard {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sleek-card {
+  background: var(--sleek-card-bg);
+  border-radius: 20px;
+  border: 1px solid var(--sleek-border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.sleek-card.is-expanded {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+.sleek-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  cursor: pointer;
+  background: #ffffff;
+  position: relative;
+  z-index: 2; /* Keeps header above the moving fields */
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-icon {
+  background: var(--sleek-primary);
+  color: white;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--sleek-primary);
+}
+
+.header-subtitle {
+  font-size: 12px;
+  color: var(--sleek-text-muted);
+}
+
+.header-arrow {
+  color: var(--sleek-text-muted);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-arrow.rotated {
+  transform: rotate(180deg);
+  color: var(--sleek-accent);
+}
+
+.sleek-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s;
+  padding: 0 24px;
+}
+
+.sleek-content-wrapper.open {
+  grid-template-rows: 1fr;
+  padding-bottom: 24px;
+}
+
+.sleek-grid {
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  /* Added padding-top to prevent "hiding" when fields move up on hover */
+  padding-top: 10px; 
+}
+
+/* Fix for large empty spaces in Customer section */
+.grid-wide {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+.sleek-field {
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #fdfdfd;
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.sleek-field:hover {
+  background: var(--hover-bg); /* Light bg color on hover */
+  border-color: var(--sleek-accent);
+  transform: translateY(-4px); /* Moves up smoothly */
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.1);
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sleek-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.field-label svg {
+  color: var(--sleek-accent);
+}
+
+.field-value-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-value {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--sleek-primary);
+}
+
+.field-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: white;
+  color: var(--sleek-accent);
+  border-radius: 6px;
+  border: 1px solid var(--sleek-border);
+}
+
+@media (max-width: 900px) {
+  .grid-wide {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .sleek-grid, .grid-wide {
+    grid-template-columns: 1fr !important;
+  }
+}

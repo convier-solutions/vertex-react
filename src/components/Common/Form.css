@@ -1,0 +1,233 @@
+:root {
+  --primary: #1d1d1f;
+  --primary-light: #86868b;
+  --accent: #0071e3;
+  --accent-light: rgba(0, 113, 227, 0.15);
+  --bg-content: rgba(255, 255, 255, 0.7);
+  --border-light: rgba(0, 0, 0, 0.1);
+  --radius-xl: 16px;
+  --radius-lg: 12px;
+  --font-family-display: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --transition-speed: 0.3s;
+  --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container Logic */
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* margin-bottom: 20px; */
+  position: relative;
+}
+
+.form-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-field.has-error input {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.35);
+}
+
+.form-field.has-error input:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.35);
+}
+
+.form-field.has-error .input-icon {
+  color: #f97373;
+}
+
+.form-error-text {
+  font-size: 0.75rem;
+  color: #ef4444;
+  margin-left: 4px;
+  margin-top: -3px;
+}
+
+/* Label Styling */
+.form-field label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-family: var(--font-family-display);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 4px;
+}
+
+/* Shared Wrapper for Input & Select */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* Icons */
+.input-icon {
+  position: absolute;
+  left: 18px;
+  color: var(--primary-light);
+  transition: all var(--transition-speed) var(--transition-ease);
+  pointer-events: none;
+  z-index: 5; /* Increased to ensure it's always on top */
+}
+
+/* Base Input & Trigger Styling */
+.form-field input, 
+.custom-select-trigger {
+  width: 100%;
+  padding: 16px 20px 16px 54px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-light);
+  font-size: 1rem;
+  font-family: var(--font-family-display);
+  background: var(--bg-content);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--primary);
+  transition: all var(--transition-speed) var(--transition-ease);
+  cursor: text;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.custom-select-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  min-height: 56px; /* Ensure consistent height */
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px solid var(--border-light);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Focus States */
+.form-field input:focus,
+.select-wrapper.is-open .custom-select-trigger {
+  outline: none;
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 4px var(--accent-light);
+  transform: translateY(-1px);
+}
+
+.select-wrapper.is-open .custom-select-trigger {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.input-wrapper:focus-within .input-icon,
+.select-wrapper.is-open .input-icon {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+
+/* Custom Select Dropdown Arrow */
+.select-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 20px;
+  width: 12px;
+  height: 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2386868b' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none;
+  transition: transform var(--transition-speed) var(--transition-ease);
+  z-index: 2;
+}
+
+.select-wrapper.is-open::after {
+  transform: rotate(180deg);
+}
+
+/* Apple Style Dropdown Menu */
+.apple-dropdown-menu {
+  /* Position is now handled by inline styles from JS */
+  height: auto;
+  max-height: 280px; 
+  overflow-y: auto;
+  
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  z-index: 99999; /* High z-index to stay on top of everything */
+  padding: 6px;
+  box-sizing: border-box;
+}
+
+/* Animations */
+.apple-dropdown-menu:not(.open-up) {
+  transform-origin: top;
+  animation: apple-pop-in 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.apple-dropdown-menu.open-up {
+  transform-origin: bottom;
+  /* Note: The JS handles the translateY(-100%), we just animate the scale/opacity */
+  animation: apple-pop-up 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes apple-pop-in {
+  from { opacity: 0; transform: scale(0.95) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes apple-pop-up {
+  from { opacity: 0; transform: translateY(-100%) scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: translateY(-100%) scale(1) translateY(0); }
+}
+
+/* Rest of your styles (Options, Scrollbar) remain the same */
+/* Dropdown Options */
+.apple-option {
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333; /* Default text color */
+  display: flex;
+  justify-content: space-between; /* Pushes check-icon to the right */
+  align-items: center;
+  transition: background 0.15s ease, color 0.15s ease;
+  margin-bottom: 2px;
+}
+
+.apple-option:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Selected State */
+.apple-option.selected {
+  background: var(--accent);
+  color: #FFFFFF !important; /* Forces text to white */
+}
+
+.apple-option.selected .check-icon {
+  color: #FFFFFF; /* Ensures the tick is white */
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* Custom Scrollbar for the Portal Menu */
+.apple-dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.apple-dropdown-menu::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+

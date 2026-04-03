@@ -1,0 +1,119 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.layout__main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  padding-top: var(--header-height);
+  transition: margin-left var(--transition-speed) var(--transition-ease);
+  display: flex;
+  flex-direction: column;
+}
+
+.layout__main.sidebar-collapsed {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+.layout__content {
+  padding: var(--space-3xl);
+  min-height: calc(100vh - var(--header-height) - 64px);
+  animation: pageEnter 0.35s ease;
+  /* Center all page content in the main area */
+  width: 100%;
+  margin: 0 auto;
+}
+
+.layout-footer {
+  margin-top: auto;
+  padding: 0.9rem 3rem 1.1rem;
+  border-top: 1px solid var(--border-light);
+  background: linear-gradient(90deg, #f9fafb 0%, #eef2ff 45%, #f9fafb 100%);
+}
+
+.layout-footer__inner {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.layout-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.layout-footer__dot {
+  padding: 0 0.1rem;
+}
+
+.layout-footer__divider {
+  opacity: 0.5;
+  padding: 0 0.25rem;
+}
+
+.layout-footer__highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.layout-footer__links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.layout-footer__link {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.layout-footer__link:hover {
+  background: rgba(15, 23, 42, 0.04);
+  color: var(--primary-medium);
+  transform: translateY(-1px);
+}
+
+.layout-footer__separator {
+  width: 1px;
+  height: 14px;
+  background: rgba(148, 163, 184, 0.5);
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .layout__main {
+    margin-left: 0;
+  }
+
+  .layout__content {
+    padding: var(--space-lg);
+    max-width: 100%; /* use full width on small screens */
+  }
+
+  .layout-footer {
+    padding-inline: var(--space-lg);
+  }
+}

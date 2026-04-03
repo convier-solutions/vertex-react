@@ -1,0 +1,131 @@
+:root {
+  --primary: #0f172a;
+  --accent: #0ea5e9;
+  --border: #e2e8f0;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --white: #ffffff;
+}
+
+.shipping-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Base Card */
+.order-card {
+  background: var(--white);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.order-card.is-open {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+}
+
+.order-card-header {
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header-main { display: flex; align-items: center; gap: 16px; }
+
+.header-icon-box {
+  width: 42px;
+  height: 42px;
+  background: var(--primary);
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-info h3 { margin: 0; font-size: 15px; font-weight: 700; color: var(--primary); }
+.status-text { margin: 0; font-size: 12px; color: var(--text-muted); }
+
+.arrow-icon { color: var(--text-muted); transition: transform 0.4s ease; }
+.arrow-icon.rotated { transform: rotate(180deg); }
+
+/* Animation Logic */
+.order-card-content {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.order-card.is-open .order-card-content {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+.content-inner { padding: 0 24px 24px 24px; }
+
+/* List Items */
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  background: #fcfdfe;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  transition: all 0.2s;
+}
+
+.shipping-active { border-left: 4px solid var(--accent); }
+
+.brand-avatar {
+  width: 40px; height: 40px; background: #f1f5f9;
+  border-radius: 10px; display: flex; align-items: center;
+  justify-content: center; font-weight: 800; color: var(--primary);
+  margin-right: 16px;
+}
+
+.item-details { flex: 1; }
+.shipping-row { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; }
+.item-main-text { font-size: 14px; font-weight: 700; color: var(--text-main); margin: 0; }
+
+.status-pill {
+  font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 6px; text-transform: uppercase;
+}
+.status-blue { background: #e0f2fe; color: #0369a1; }
+.status-gray { background: #f1f5f9; color: #64748b; }
+
+.item-meta { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); }
+
+.mono-code {
+  font-family: 'JetBrains Mono', monospace;
+  background: #f8fafc;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 5px;
+}
+
+.copy-hint { opacity: 0; transition: 0.2s; }
+.mono-code:hover .copy-hint { opacity: 1; }
+
+.item-actions { display: flex; gap: 8px; margin-left: 16px; }
+
+.icon-btn {
+  width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border);
+  background: white; color: var(--text-muted); cursor: pointer; transition: 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.icon-btn:hover { background: #f8fafc; color: var(--primary); }
+.accent-hover:hover { color: var(--accent); border-color: var(--accent); }
+
+.empty-shipping-state {
+  padding: 40px; text-align: center; color: var(--text-muted);
+  background: #f8fafc; border-radius: 14px; border: 1px dashed var(--border);
+}
+.empty-shipping-state p { font-size: 13px; margin-top: 8px; }

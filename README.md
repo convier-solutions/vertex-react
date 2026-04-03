@@ -1,6 +1,6 @@
 ## Vertex React
 
-Vertex React is a React + Vite application that uses Tailwind CSS for styling and includes a dashboard-style UI for managing orders, roles, and related insights.
+Vertex React is a React + Vite application that uses CSS for styling and includes a dashboard-style UI for managing orders, roles, and related insights.
 
 ### Tech Stack
 - React (Vite)

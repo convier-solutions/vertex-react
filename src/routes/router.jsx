@@ -44,6 +44,8 @@ const router = createBrowserRouter([
       { path: 'coupons', element: <Placeholder /> },
     ],
   },
-]);
+], {
+  basename: import.meta.env.BASE_URL,
+});
 
 export default router;
